@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.project.nebulosa.model.Nebulosa;
 
-public interface NebulosaRepository extends JpaRepository<Nebulosa, Long>{
+public interface RepositoryNebulosa extends JpaRepository<Nebulosa, Long>{
 
 }
