@@ -42,4 +42,14 @@ public class ServiceNebulosa {
 		        	  return deleteOrId;
 		          }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma nebulosa encontrada para ser deletada"));
 	}
-}	
+	
+	public void updateData(Nebulosa nebulosa, Long id) {
+		repositoryNebulosa
+		               .findById(id)
+		               .map(updateDate -> {
+		            	  nebulosa.setId(updateDate.getId());
+		            	  repositoryNebulosa.save(nebulosa);
+		            	  return updateDate;
+		               }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma nebulosa foi encontrada para atulizar"));
+	}	
+}
