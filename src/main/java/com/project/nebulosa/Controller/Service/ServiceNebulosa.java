@@ -1,5 +1,6 @@
 package com.project.nebulosa.Controller.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,27 @@ public class ServiceNebulosa {
 	
 	public Optional<Nebulosa> buscaId(Long id) {
 		Optional<Nebulosa> buscaId = repositoryNebulosa.findById(id);
-		return Optional.of(buscaId
+		 return Optional.of(buscaId
 				  .orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma nebulosa encontrada")));
 	}
+	
+	public List<Nebulosa> buscarPorCostelacao(String costelacao){
+	   return repositoryNebulosa.findByCostelacaoIgnoreCaseContaining(costelacao);
+	}
 }	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
