@@ -33,20 +33,13 @@ public class ServiceNebulosa {
 	public List<Nebulosa> buscarPorCostelacao(String costelacao){
 	   return repositoryNebulosa.findByCostelacaoIgnoreCaseContaining(costelacao);
 	}
+	
+	public void deleteData(Long id) {
+		repositoryNebulosa
+		          .findById(id)
+		          .map(deleteOrId -> {
+		        	  repositoryNebulosa.deleteById(id);
+		        	  return deleteOrId;
+		          }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma nebulosa encontrada para ser deletada"));
+	}
 }	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
