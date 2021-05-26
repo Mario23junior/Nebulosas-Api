@@ -10,12 +10,13 @@ public class Nebulosa {
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long id;
-	String urlImage;
-	String nome;
-	String costelacao;
-	Double escala;
-	String categoria;
+	private Long id;
+	private String urlImage;
+	private String nome;
+	private String costelacao;
+	private Double escala;
+	private String categoria;
+	
 	public Long getId() {
 		return id;
 	}
