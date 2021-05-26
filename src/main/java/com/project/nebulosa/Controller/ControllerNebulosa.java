@@ -1,5 +1,6 @@
 package com.project.nebulosa.Controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.nebulosa.Controller.Service.ServiceNebulosa;
@@ -30,5 +32,10 @@ public class ControllerNebulosa {
 	@GetMapping("/{id}")
 	public Optional<Nebulosa> listId(@PathVariable Long id) {
 		return serviceNebulosa.buscaId(id);
+	}
+	
+	@GetMapping("/find")
+	public List<Nebulosa> listByCostelcaos(@RequestParam(name = "costelacao")String costelacao){
+		return serviceNebulosa.buscarPorCostelacao(costelacao);
 	}
 }
