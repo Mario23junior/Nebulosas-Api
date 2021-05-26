@@ -1,5 +1,7 @@
 package com.project.nebulosa.Controller.Service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.project.nebulosa.Repositorys.RepositoryNebulosa;
@@ -18,4 +20,9 @@ public class ServiceNebulosa {
 		Nebulosa saveNebulosa = repositoryNebulosa.save(nebulosa);
 		return saveNebulosa;
 	}
-}
+	
+	public Optional<Nebulosa> buscaId(Long id) {
+		Optional<Nebulosa> buscaId = repositoryNebulosa.findById(id);
+		return buscaId;
+	}
+}	
