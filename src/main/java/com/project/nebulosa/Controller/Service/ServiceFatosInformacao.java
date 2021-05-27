@@ -39,4 +39,14 @@ public class ServiceFatosInformacao {
  				               }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação doi deletada"));
  				            
 	}
+	
+	public void updateData(FatosInformacao fatosInformacao, Long id) {
+		repositoryFatosInformation
+		                        .findById(id)
+		                        .map(update -> {
+		                        	fatosInformacao.setId(update.getId());
+		                        	repositoryFatosInformation.save(fatosInformacao);
+		                        	return update;
+		                        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação para ser atualizada"));
+	}
 }
