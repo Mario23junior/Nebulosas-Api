@@ -29,4 +29,14 @@ public class ServiceFatosInformacao {
 				     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacao foi encontrada")));
 		return listId;
 	}
+	
+	public void deleteFatosInformatin(Long id){
+ 		   repositoryFatosInformation
+ 				               .findById(id)
+ 				               .map(deleteData -> {
+ 				            	   repositoryFatosInformation.deleteById(id);
+ 				            	   return deleteData;
+ 				               }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação doi deletada"));
+ 				            
+	}
 }
