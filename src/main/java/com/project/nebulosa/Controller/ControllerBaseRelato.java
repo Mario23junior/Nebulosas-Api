@@ -1,5 +1,9 @@
 package com.project.nebulosa.Controller;
 
+import java.util.Optional;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +25,10 @@ public class ControllerBaseRelato {
 	@PostMapping
 	public BaseRelato save(@RequestBody BaseRelato baseRelato) {
 		 return serviceBaseRelato.salvarData(baseRelato);
+	}
+	
+	@GetMapping("/{id}")
+	public Optional<BaseRelato> findId(@PathVariable Long id) {
+		return serviceBaseRelato.listId(id);
 	}
 }
