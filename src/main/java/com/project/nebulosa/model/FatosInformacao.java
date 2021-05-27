@@ -19,7 +19,7 @@ public class FatosInformacao {
 	private Date dataDeObrservacao;
 	private Double tempoDeObservacao;
 	private String codigoDeCores;
-	private Long estimativaDeDistanciaEmLuz;
+	private Double estimativaDeDistanciaEmLuz;
 	
 	public Long getId() {
 		return id;
@@ -45,10 +45,10 @@ public class FatosInformacao {
 	public void setCodigoDeCores(String codigoDeCores) {
 		this.codigoDeCores = codigoDeCores;
 	}
-	public Long getEstimativaDeDistanciaEmLuz() {
+	public Double getEstimativaDeDistanciaEmLuz() {
 		return estimativaDeDistanciaEmLuz;
 	}
-	public void setEstimativaDeDistanciaEmLuz(Long estimativaDeDistanciaEmLuz) {
+	public void setEstimativaDeDistanciaEmLuz(Double estimativaDeDistanciaEmLuz) {
 		this.estimativaDeDistanciaEmLuz = estimativaDeDistanciaEmLuz;
 	}
 	
