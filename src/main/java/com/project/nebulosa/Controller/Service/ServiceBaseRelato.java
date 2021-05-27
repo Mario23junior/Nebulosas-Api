@@ -1,6 +1,10 @@
 package com.project.nebulosa.Controller.Service;
 
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.project.nebulosa.Repositorys.RepositoryBaseRelato;
 import com.project.nebulosa.model.BaseRelato;
@@ -17,5 +21,11 @@ public class ServiceBaseRelato {
 	public BaseRelato salvarData(BaseRelato baseRelato) {
 		BaseRelato salvarData = repositoryBaseRelato.save(baseRelato);
 		return salvarData;
+	}
+	
+	public Optional<BaseRelato> listId(Long id){
+		Optional<BaseRelato> list = repositoryBaseRelato.findById(id);
+		list.orElseThrow(() ->  new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacão foi em contrada"));
+		return list;
 	}
 }
