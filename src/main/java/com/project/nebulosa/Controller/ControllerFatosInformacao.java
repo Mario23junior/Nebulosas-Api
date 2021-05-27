@@ -22,4 +22,6 @@ public class ControllerFatosInformacao {
 	public FatosInformacao save(@RequestBody FatosInformacao fatosInformacao) {
 		return serviceFatosInformacao.salveFatosInformation(fatosInformacao);
 	}
+	
+	
 }
