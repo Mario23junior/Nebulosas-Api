@@ -28,4 +28,13 @@ public class ServiceBaseRelato {
 		list.orElseThrow(() ->  new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacão foi em contrada"));
 		return list;
 	}
+	
+	public void delete(Long id) {
+		repositoryBaseRelato
+		            .findById(id)
+		            .map(delete -> {
+		            	repositoryBaseRelato.deleteById(id);
+		            	return delete;
+		            }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação foi encontrada"));
+	}
 }
