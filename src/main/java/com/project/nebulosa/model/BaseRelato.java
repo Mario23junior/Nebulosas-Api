@@ -1,9 +1,13 @@
 package com.project.nebulosa.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class BaseRelato {
@@ -12,8 +16,10 @@ public class BaseRelato {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String coDeNome;
-	private String instrumento; 
-	private Long dataDeLancamento;
+	private String instrumento;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	private Date dataDeLancamento;
 	private String creditos;
 	
 	public Long getId() {
@@ -34,10 +40,10 @@ public class BaseRelato {
 	public void setInstrumento(String instrumento) {
 		this.instrumento = instrumento;
 	}
-	public Long getDataDeLancamento() {
+	public Date getDataDeLancamento() {
 		return dataDeLancamento;
 	}
-	public void setDataDeLancamento(Long dataDeLancamento) {
+	public void setDataDeLancamento(Date dataDeLancamento) {
 		this.dataDeLancamento = dataDeLancamento;
 	}
 	public String getCreditos() {
