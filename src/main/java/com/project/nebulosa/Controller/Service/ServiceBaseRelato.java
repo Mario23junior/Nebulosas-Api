@@ -37,4 +37,26 @@ public class ServiceBaseRelato {
 		            	return delete;
 		            }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação foi encontrada"));
 	}
+	
+	public void update(BaseRelato baseRelato, Long id) {
+		repositoryBaseRelato
+		                   .findById(id)
+		                   .map(update -> {
+		                    	baseRelato.setId(update.getId());
+		                    	repositoryBaseRelato.save(baseRelato);
+		                    	return update;
+		                    }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação encontrada para atualizar"));
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
