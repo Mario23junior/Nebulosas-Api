@@ -33,11 +33,19 @@ public class ServiceBase implements ServiceImplement{
  	
  	public NebulosaDTO ConvertEntidadeToDto(Nebulosa nebulosa) {
   		modelMapper.getConfiguration()
-  		.setMatchingStrategy(MatchingStrategies.LOOSE);
+  	               .setMatchingStrategy(MatchingStrategies.LOOSE);
+  		
   		NebulosaDTO nebulosaDTO = modelMapper
   				.map(nebulosa, NebulosaDTO.class);
   		
   		return nebulosaDTO;
+ 	}
+ 	
+ 	public List<NebulosaDTO> listAllDto() {
+ 		List<NebulosaDTO> list = list_beulosa();
+ 		return list 
+ 				 .stream()
+ 				 .collect(Collectors.toList());
  	}
 
  
