@@ -1,26 +1,38 @@
 package com.project.nebulosa.ControllerAdvice;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Date;
 
+import javax.management.AttributeNotFoundException;
+
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
 
 @RestControllerAdvice
 public class ControllerAdviceErros {
- 
-	@ExceptionHandler(MethodArgumentNotValidException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ApiErros MethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-		List<String> ResultDefautErros = ex.getBindingResult().getAllErrors()
-				.stream()
-				.map(erro -> erro.getDefaultMessage())
-				.collect(Collectors.toList());
-		
-		return new ApiErros(ResultDefautErros);
-		
-	}
+	
+	@ExceptionHandler(ConfigDataResourceNotFoundException.class)
+	  public ResponseEntity<ApiErros> resourceNotFoundException(AttributeNotFoundException ex, WebRequest request) {
+	    ApiErros message = new ApiErros(
+	        HttpStatus.NOT_FOUND.value(),
+	        new Date(),
+	        ex.getMessage(),
+	        request.getDescription(true));
+	    
+	    return new ResponseEntity<ApiErros>(message, HttpStatus.NOT_FOUND);
+	  }
+
+	  @ExceptionHandler(Exception.class)
+	  public ResponseEntity<ApiErros> globalExceptionHandler(Exception ex, WebRequest request) {
+		  ApiErros message = new ApiErros(
+	        HttpStatus.INTERNAL_SERVER_ERROR.value(),
+	        new Date(),
+	        ex.getMessage(),
+	        request.getDescription(false));
+	    
+	    return new ResponseEntity<ApiErros>(message, HttpStatus.INTERNAL_SERVER_ERROR);
+	  }
 }
