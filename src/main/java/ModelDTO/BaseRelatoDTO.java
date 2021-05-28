@@ -3,7 +3,6 @@ package ModelDTO;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.project.nebulosa.model.Nebulosa;
 
 public class BaseRelatoDTO {
     
@@ -13,8 +12,9 @@ public class BaseRelatoDTO {
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date dataDeLancamento;
-	private String creditos;	
-	private Nebulosa nebulosa;
+	private String creditos;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -45,12 +45,5 @@ public class BaseRelatoDTO {
 	public void setCreditos(String creditos) {
 		this.creditos = creditos;
 	}
-	public Nebulosa getNebulosa() {
-		return nebulosa;
-	}
-	public void setNebulosa(Nebulosa nebulosa) {
-		this.nebulosa = nebulosa;
-	}
-	
-	
+
 }

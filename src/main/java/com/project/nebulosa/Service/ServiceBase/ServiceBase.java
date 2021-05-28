@@ -19,11 +19,12 @@ public class ServiceBase implements ServiceImplement{
 	private RepositoryNebulosa repositoryNebulosa;
 	private ModelMapper modelMapper;
 	
-	public ServiceBase(RepositoryNebulosa repositoryNebulosa) {
+	public ServiceBase(RepositoryNebulosa repositoryNebulosa, ModelMapper modelMapper) {
 		this.repositoryNebulosa = repositoryNebulosa;
+		this.modelMapper = modelMapper;
 	}
 	
- 	public List<NebulosaDTO> list_beulosa() {
+ 	public List<NebulosaDTO> list_nebulosa() {
  		return ((List<Nebulosa>) repositoryNebulosa
  				.findAll())
  				.stream()
@@ -42,7 +43,7 @@ public class ServiceBase implements ServiceImplement{
  	}
  	
  	public List<NebulosaDTO> listAllDto() {
- 		List<NebulosaDTO> list = list_beulosa();
+ 		List<NebulosaDTO> list = list_nebulosa();
  		return list 
  				 .stream()
  				 .collect(Collectors.toList());

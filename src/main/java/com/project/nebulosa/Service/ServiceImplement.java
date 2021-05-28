@@ -6,6 +6,6 @@ import ModelDTO.NebulosaDTO;
 
 public interface ServiceImplement {
 	
-   List<NebulosaDTO> list_beulosa();
+   List<NebulosaDTO> list_nebulosa();
    List<NebulosaDTO> listAllDto();
 }
