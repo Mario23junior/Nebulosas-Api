@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,11 +17,17 @@ public class BaseRelato {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@NotEmpty(message = "{campo.BaseRelato.coDeNome}")
 	private String coDeNome;
+	
+	@NotEmpty(message = "{campo.BaseRelato.instrumento}")
 	private String instrumento;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date dataDeLancamento;
+	
+	@NotEmpty(message = "{campo.BaseRelato.creditos}")
 	private String creditos;
 	
 	@ManyToOne
