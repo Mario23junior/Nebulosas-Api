@@ -3,7 +3,6 @@ package ModelDTO;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.project.nebulosa.model.Nebulosa;
 
 public class FatosInformacaoDTO {
     
@@ -14,8 +13,6 @@ public class FatosInformacaoDTO {
 	private String codigoDeCores;
 	private Double estimativaDeDistanciaEmLuz;
 	
- 	private Nebulosa nebulosa;
-
 	public Long getId() {
 		return id;
 	}
@@ -54,13 +51,5 @@ public class FatosInformacaoDTO {
 
 	public void setEstimativaDeDistanciaEmLuz(Double estimativaDeDistanciaEmLuz) {
 		this.estimativaDeDistanciaEmLuz = estimativaDeDistanciaEmLuz;
-	}
-
-	public Nebulosa getNebulosa() {
-		return nebulosa;
-	}
-
-	public void setNebulosa(Nebulosa nebulosa) {
-		this.nebulosa = nebulosa;
 	}		
 }
