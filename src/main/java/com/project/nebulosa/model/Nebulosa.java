@@ -23,7 +23,7 @@ public class Nebulosa {
 	@NotEmpty(message = "{campo.nebulosa.nome}")
 	private String nome;
 	
-	@NotEmpty(message = "{campo.nebulosa.costelcao}")
+	@NotEmpty(message = "{campo.nebulosa.costelacao}")
 	private String costelacao;
 	private Double escala;
 	
