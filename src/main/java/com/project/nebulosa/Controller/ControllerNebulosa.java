@@ -3,6 +3,8 @@ package com.project.nebulosa.Controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +29,7 @@ public class ControllerNebulosa {
 	}
 	
 	@PostMapping
-	public Nebulosa save(@RequestBody Nebulosa nebulosa) {
+	public Nebulosa save(@RequestBody @Valid Nebulosa nebulosa) {
 		return serviceNebulosa.salvar(nebulosa);
 	}
 	
@@ -47,7 +49,7 @@ public class ControllerNebulosa {
 	}
 	
 	@PutMapping("/{id}")
-	public void update(@RequestBody Nebulosa nebulosa, @PathVariable Long id) {
+	public void update(@RequestBody @Valid Nebulosa nebulosa, @PathVariable Long id) {
 		  serviceNebulosa.updateData(nebulosa, id);
 	}
 }
