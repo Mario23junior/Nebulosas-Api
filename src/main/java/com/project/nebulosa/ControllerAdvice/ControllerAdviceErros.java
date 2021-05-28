@@ -4,17 +4,18 @@ import java.util.Date;
 
 import javax.management.AttributeNotFoundException;
 
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
+import com.project.nebulosa.Exception.ResourceNotFoundException;
+
 @RestControllerAdvice
 public class ControllerAdviceErros {
 	
-	@ExceptionHandler(ConfigDataResourceNotFoundException.class)
+	@ExceptionHandler(ResourceNotFoundException.class)
 	  public ResponseEntity<ApiErros> resourceNotFoundException(AttributeNotFoundException ex, WebRequest request) {
 	    ApiErros message = new ApiErros(
 	        HttpStatus.NOT_FOUND.value(),
