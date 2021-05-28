@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -22,6 +23,15 @@ public class BaseRelato {
 	private Date dataDeLancamento;
 	private String creditos;
 	
+	@ManyToOne
+	private Nebulosa nebulosa;
+	
+	public Nebulosa getNebulosa() {
+		return nebulosa;
+	}
+	public void setNebulosa(Nebulosa nebulosa) {
+		this.nebulosa = nebulosa;
+	}
 	public Long getId() {
 		return id;
 	}

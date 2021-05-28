@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -21,6 +22,15 @@ public class FatosInformacao {
 	private String codigoDeCores;
 	private Double estimativaDeDistanciaEmLuz;
 	
+	@ManyToOne
+	private Nebulosa nebulosa;
+	
+	public Nebulosa getNebulosa() {
+		return nebulosa;
+	}
+	public void setNebulosa(Nebulosa nebulosa) {
+		this.nebulosa = nebulosa;
+	}
 	public Long getId() {
 		return id;
 	}

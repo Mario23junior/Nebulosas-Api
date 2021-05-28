@@ -1,9 +1,13 @@
 package com.project.nebulosa.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Nebulosa {
@@ -17,6 +21,24 @@ public class Nebulosa {
 	private Double escala;
 	private String categoria;
 	
+	@OneToMany(mappedBy = "nebulosa", cascade = CascadeType.ALL)
+	private List<FatosInformacao> fatosInformacao;
+	
+	@OneToMany(mappedBy = "nebulosa", cascade = CascadeType.ALL)
+	private List<BaseRelato> baseRelato;
+	
+	public List<FatosInformacao> getFatosInformacao() {
+		return fatosInformacao;
+	}
+	public void setFatosInformacao(List<FatosInformacao> fatosInformacao) {
+		this.fatosInformacao = fatosInformacao;
+	}
+	public List<BaseRelato> getBaseRelato() {
+		return baseRelato;
+	}
+	public void setBaseRelato(List<BaseRelato> baseRelato) {
+		this.baseRelato = baseRelato;
+	}
 	public Long getId() {
 		return id;
 	}
