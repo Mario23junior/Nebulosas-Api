@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -19,6 +20,8 @@ public class FatosInformacao {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date dataDeObrservacao;
 	private Double tempoDeObservacao;
+	
+	@NotEmpty(message = "{campo.fatosInformacao.codigoCores}")
 	private String codigoDeCores;
 	private Double estimativaDeDistanciaEmLuz;
 	

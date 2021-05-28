@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Nebulosa {
@@ -15,10 +16,18 @@ public class Nebulosa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@NotEmpty(message = "{campo.nebulosa.urlImage}")
 	private String urlImage;
+	
+	@NotEmpty(message = "{campo.nebulosa.nome}")
 	private String nome;
+	
+	@NotEmpty(message = "{campo.nebulosa.costelcao}")
 	private String costelacao;
 	private Double escala;
+	
+	@NotEmpty(message = "{campo.nebulosa.categoria}")
 	private String categoria;
 	
 	@OneToMany(mappedBy = "nebulosa", cascade = CascadeType.ALL)
