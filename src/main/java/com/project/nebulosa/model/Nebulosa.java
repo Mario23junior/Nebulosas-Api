@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Nebulosa {
     
@@ -36,12 +38,15 @@ public class Nebulosa {
 	@OneToMany(mappedBy = "nebulosa", cascade = CascadeType.ALL)
 	private List<BaseRelato> baseRelato;
 	
+	@JsonIgnore
 	public List<FatosInformacao> getFatosInformacao() {
 		return fatosInformacao;
 	}
 	public void setFatosInformacao(List<FatosInformacao> fatosInformacao) {
 		this.fatosInformacao = fatosInformacao;
 	}
+	
+	@JsonIgnore
 	public List<BaseRelato> getBaseRelato() {
 		return baseRelato;
 	}

@@ -2,10 +2,9 @@ package com.project.nebulosa.Controller.Service;
 
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
+import com.project.nebulosa.Exception.ResourceNotFoundException;
 import com.project.nebulosa.Repositorys.RepositoryFatosInformation;
 import com.project.nebulosa.model.FatosInformacao;
 
@@ -26,7 +25,7 @@ public class ServiceFatosInformacao {
 	public Optional<FatosInformacao> listfatosInformacao(Long id){
 		Optional<FatosInformacao> listId = repositoryFatosInformation.findById(id);
 		Optional.of(listId
-				     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informacao foi encontrada")));
+				     .orElseThrow(() -> new ResourceNotFoundException("Nenhuma informacao foi encontrada")));
 		return listId;
 	}
 	
@@ -36,7 +35,7 @@ public class ServiceFatosInformacao {
  				               .map(deleteData -> {
  				            	   repositoryFatosInformation.deleteById(id);
  				            	   return deleteData;
- 				               }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação doi deletada"));
+ 				               }).orElseThrow(() -> new ResourceNotFoundException("Nenhuma informação doi deletada"));
  				            
 	}
 	
@@ -47,6 +46,6 @@ public class ServiceFatosInformacao {
 		                        	fatosInformacao.setId(update.getId());
 		                        	repositoryFatosInformation.save(fatosInformacao);
 		                        	return update;
-		                        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma informação para ser atualizada"));
+		                        }).orElseThrow(() -> new ResourceNotFoundException("Nenhuma informação para ser atualizada"));
 	}
 }
