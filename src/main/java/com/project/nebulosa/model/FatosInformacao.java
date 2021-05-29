@@ -7,9 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class FatosInformacao {
@@ -19,8 +21,10 @@ public class FatosInformacao {
 	private Long id;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date dataDeObrservacao;
+	
 	private Double tempoDeObservacao;
 	
+	@NotBlank
 	@NotEmpty(message = "{campo.fatosInformacao.codigoCores}")
 	private String codigoDeCores;
 	private Double estimativaDeDistanciaEmLuz;
@@ -28,6 +32,7 @@ public class FatosInformacao {
 	@ManyToOne
 	private Nebulosa nebulosa;
 	
+	@JsonIgnore
 	public Nebulosa getNebulosa() {
 		return nebulosa;
 	}

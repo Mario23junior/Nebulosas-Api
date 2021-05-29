@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,13 +23,16 @@ public class Nebulosa {
 	@NotEmpty(message = "{campo.nebulosa.urlImage}")
 	private String urlImage;
 	
+	@NotBlank
 	@NotEmpty(message = "{campo.nebulosa.nome}")
 	private String nome;
 	
+	@NotBlank
 	@NotEmpty(message = "{campo.nebulosa.costelacao}")
 	private String costelacao;
 	private Double escala;
 	
+	@NotBlank
 	@NotEmpty(message = "{campo.nebulosa.categoria}")
 	private String categoria;
 	
