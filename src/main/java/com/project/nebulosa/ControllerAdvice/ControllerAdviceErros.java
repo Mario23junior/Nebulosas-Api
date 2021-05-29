@@ -1,39 +1,35 @@
 package com.project.nebulosa.ControllerAdvice;
 
-import java.util.Date;
-
-import javax.management.AttributeNotFoundException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.project.nebulosa.Exception.ResourceNotFoundException;
+import com.google.common.net.HttpHeaders;
 
 @RestControllerAdvice
-public class ControllerAdviceErros {
+public class ControllerAdviceErros extends ResponseEntityExceptionHandler{
 	
-	@ExceptionHandler(ResourceNotFoundException.class)
-	  public ResponseEntity<ApiErros> resourceNotFoundException(AttributeNotFoundException ex, WebRequest request) {
-	    ApiErros message = new ApiErros(
-	        HttpStatus.NOT_FOUND.value(),
-	        new Date(),
-	        ex.getMessage(),
-	        request.getDescription(true));
-	    
-	    return new ResponseEntity<ApiErros>(message, HttpStatus.NOT_FOUND);
-	  }
+	   protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+	        List<ErrorObject> errors = getErrors(ex);
+	        ApiErros errorResponse = getErrorResponse(ex, status, errors);
+	        return new ResponseEntity<>(errorResponse, status);
+	    }
 
-	  @ExceptionHandler(Exception.class)
-	  public ResponseEntity<ApiErros> globalExceptionHandler(Exception ex, WebRequest request) {
-		  ApiErros message = new ApiErros(
-	        HttpStatus.INTERNAL_SERVER_ERROR.value(),
-	        new Date(),
-	        ex.getMessage(),
-	        request.getDescription(false));
-	    
-	    return new ResponseEntity<ApiErros>(message, HttpStatus.INTERNAL_SERVER_ERROR);
-	  }
+	    private ApiErros getErrorResponse(MethodArgumentNotValidException ex, HttpStatus status, List<ErrorObject> errors) {
+	        return new ApiErros("Requisição possui campos inválidos", status.value(),
+	                status.getReasonPhrase(), ex.getBindingResult().getObjectName(), errors);
+	    }
+
+	    private List<ErrorObject> getErrors(MethodArgumentNotValidException ex) {
+	        return ex.getBindingResult().getFieldErrors().stream()
+	                .map(error -> new ErrorObject(error.getDefaultMessage(), error.getField(), error.getRejectedValue()))
+	                .collect(Collectors.toList());
+	    }
 }
+

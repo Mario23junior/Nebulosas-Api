@@ -1,39 +1,39 @@
 package com.project.nebulosa.ControllerAdvice;
 
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.List;
 
 public class ApiErros {
 
-	private int statusCode;
-	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-	private Date timestamp;	
-	private String message;
-	private String description;
-
-	public ApiErros(int statusCode, Date timestamp, String message, String description) {
-		this.statusCode = statusCode;
-		this.timestamp = timestamp;
-		this.message = message;
-		this.description = description;
-	}
-
-	public int getStatusCode() {
-		return statusCode;
-	}
-
-	public Date getTimestamp() {
-		return timestamp;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public String getDescription() {
-		return description;
-	}
+	    private final String message;
+	    private final int code;
+	    private final String status;
+	    private final String objectName;
+	    private final List<ErrorObject> errors;
+	    
+		public ApiErros(String message, int code, String status, String objectName, List<ErrorObject> errors) {
+			super();
+			this.message = message;
+			this.code = code;
+			this.status = status;
+			this.objectName = objectName;
+			this.errors = errors;
+		}
+		public String getMessage() {
+			return message;
+		}
+		public int getCode() {
+			return code;
+		}
+		public String getStatus() {
+			return status;
+		}
+		public String getObjectName() {
+			return objectName;
+		}
+		public List<ErrorObject> getErrors() {
+			return errors;
+		}
+	    
+	    
 
 }
