@@ -3,9 +3,7 @@ package com.project.nebulosa.Controller.Service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.project.nebulosa.Exception.ResourceNotFoundException;
 import com.project.nebulosa.Repositorys.RepositoryNebulosa;
@@ -41,7 +39,7 @@ public class ServiceNebulosa {
 		          .map(deleteOrId -> {
 		        	  repositoryNebulosa.deleteById(id);
 		        	  return deleteOrId;
-		          }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma nebulosa encontrada para ser deletada"));
+		          }).orElseThrow(() -> new ResourceNotFoundException("Nenhuma nebulosa encontrada para ser deletada"));
 	}
 	
 	public void updateData(Nebulosa nebulosa, Long id) {
@@ -51,6 +49,6 @@ public class ServiceNebulosa {
 		            	  nebulosa.setId(updateDate.getId());
 		            	  repositoryNebulosa.save(nebulosa);
 		            	  return updateDate;
-		               }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Nenhuma nebulosa foi encontrada para atulizar"));
+		               }).orElseThrow(() -> new ResourceNotFoundException("Nenhuma nebulosa foi encontrada para atulizar"));
 	}	
 }
