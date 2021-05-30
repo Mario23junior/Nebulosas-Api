@@ -1,39 +1,49 @@
 package com.project.nebulosa.ControllerAdvice;
 
-import java.util.List;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ApiErros {
 
-	    private final String message;
-	    private final int code;
-	    private final String status;
-	    private final String objectName;
-	    private final List<ErrorObject> errors;
-	    
-		public ApiErros(String message, int code, String status, String objectName, List<ErrorObject> errors) {
-			super();
-			this.message = message;
-			this.code = code;
-			this.status = status;
-			this.objectName = objectName;
-			this.errors = errors;
-		}
-		public String getMessage() {
-			return message;
-		}
-		public int getCode() {
-			return code;
-		}
-		public String getStatus() {
-			return status;
-		}
-		public String getObjectName() {
-			return objectName;
-		}
-		public List<ErrorObject> getErrors() {
-			return errors;
-		}
-	    
-	    
+	private int status;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	private Date timestamp;
+	private String message;
+	private String path;
+	
+	public ApiErros(int status, Date timestamp, String message, String path) {
+		super();
+		this.status = status;
+		this.timestamp = timestamp;
+		this.message = message;
+		this.path = path;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public Date getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
+	
 
 }

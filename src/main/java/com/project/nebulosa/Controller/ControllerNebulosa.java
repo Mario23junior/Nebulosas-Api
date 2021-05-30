@@ -34,7 +34,7 @@ public class ControllerNebulosa {
 	}
 	
 	@GetMapping("/{id}")
-	public Optional<Nebulosa> listId(@PathVariable Long id) {
+	public Optional<Nebulosa> listId(@PathVariable @Valid Long id) {
 		return serviceNebulosa.buscaId(id);
 	}
 	
