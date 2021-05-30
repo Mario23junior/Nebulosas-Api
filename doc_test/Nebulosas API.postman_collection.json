@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "98568a90-09e7-43c0-8fa8-7c04b776bb17",
+		"name": "Nebulosas API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Nebulosa",
+			"item": [
+				{
+					"name": "Salvando nebulosas na base de dados",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"urlImage\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/1200px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg\",\n    \"nome\":\"nebulosa de Orion\",\n    \"costelacao\":\"Orion\",\n    \"escala\":5.5,\n    \"categoria\":\"Estrelas normais e aglomerados de estrelas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/nebulosa/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"nebulosa",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listando dados de nebulosa por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/api/nebulosa/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"nebulosa",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listando nebulosas por costelcao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/api/nebulosa/find/?costelacao=orion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"nebulosa",
+								"find",
+								""
+							],
+							"query": [
+								{
+									"key": "costelacao",
+									"value": "orion"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletando nebulosas por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/api/nebulosa/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"nebulosa",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atulizando informaçãoes de nebulosas",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"urlImage\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/1200px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg\",\n    \"nome\": \"nebulosa de Orion\",\n    \"costelacao\": \"Orion\",\n    \"escala\": 5.5,\n    \"categoria\": \"Estrelas normais e aglomerados de estrelas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/nebulosa/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"nebulosa",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FatosInformation",
+			"item": [
+				{
+					"name": "Salvando os fatos em informcao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dataDeObrservacao\": \"21/01/2003\",\n    \"tempoDeObservacao\":\"223\",\n    \"codigoDeCores\":\"X-ray: (Blue, yellow, orange); Optical (red-purple)\",\n    \"estimativaDeDistanciaEmLuz\":1500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/fatosInformacao/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"fatosInformacao",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listando fatosInformacao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/api/fatosInformacao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"fatosInformacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletando dados de FatosInformacao",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/api/fatosInformacao/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"fatosInformacao",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atulizando dados por id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"dataDeObrservacao\": \"21/01/2003\",\n    \"tempoDeObservacao\": 223.0,\n    \"codigoDeCores\": \"Raio X: (azul, amarelo, laranja); Ótico (vermelho-roxo)\",\n    \"estimativaDeDistanciaEmLuz\": 1500.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/fatosInformacao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"fatosInformacao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Base Relato",
+			"item": [
+				{
+					"name": "Salvando baseRelato de informçãoes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"coDeNome\":\"M42\",\n    \"instrumento\":\"ACIS\",\n    \"dataDeLancamento\":\"03/10/2003\",\n    \"creditos\":\"Raios-X: NASA / CXC / Penn State / E.Feigelson & K.Getman et al .; Ótico: NASA / ESA / STScI / M. Robberto et al.\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/baseRelato/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"baseRelato",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listando informacoes por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/api/baseRelato/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"baseRelato",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletando informacoes por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/api/baseRelato/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"baseRelato",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atulizando informacoes de baseRelato",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"coDeNome\": \"M42\",\n    \"instrumento\": \"ACIS\",\n    \"dataDeLancamento\": \"03/10/2003\",\n    \"creditos\": \"Raios-X: NASA / CXC / Penn State / E.Feigelson & K.Getman et al .; Ótico: NASA / ESA / STScI / M. Robberto et al.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/api/baseRelato/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"baseRelato",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NebuloasDTO",
+			"item": [
+				{
+					"name": "Listando dados DTO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/api/listall/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"api",
+								"listall",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
