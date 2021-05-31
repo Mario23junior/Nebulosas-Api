@@ -16,9 +16,8 @@ public class ControllerUser {
  	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	private ServiceUser serviceUser;
 
-	public ControllerUser(BCryptPasswordEncoder bCryptPasswordEncoder ,ServiceUser serviceUser) {
-		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-		this.serviceUser = serviceUser;
+	public ControllerUser(ServiceUser serviceUser) {
+ 		this.serviceUser = serviceUser;
  	}
 
 	@PostMapping("/record")
