@@ -3,12 +3,12 @@
 <h1 align="center">API-Nebulosa</h1>
 
 <h3 align="center">
-API REST de código aberto para dados de consulta de  pesquisa  as informações nela contida  foi desenvolvida usando como base nos dados da <a href="https://www.nasa.gov/subject/6893/nebulae/">NASA</a>
- e <a href="https://chandra.harvard.edu/photo/2007/orion/">Chandra</a> usando como base organizacional um sistema de CRUD
+API REST de código aberto para dados de consulta de  pesquisa  as informações nela contida  foi desenvolvida usando como base nos dados da <a href="https://www.nasa.gov/subject/6893/nebulae/" target="_blank">NASA</a>
+ e <a href="https://chandra.harvard.edu/photo/2007/orion/" target="_blank">Chandra</a> usando como base organizacional um sistema de CRUD
 <p align="center">
  
-<a href="https://www.travis-ci.com/github/Mario23junior/Api-Nebulosas/pull_requests"><img src="https://www.travis-ci.com/Mario23junior/Api-Nebulosas.svg?branch=main">
-<a href="https://en.wikipedia.org/wiki/Representational_state_transfer"><img src="https://img.shields.io/badge/interface-REST-brightgreen.svg?longCache=true&style=flat-square"></a>
+<a href="https://www.travis-ci.com/github/Mario23junior/Api-Nebulosas/pull_requests" target="_blank"><img src="https://www.travis-ci.com/Mario23junior/Api-Nebulosas.svg?branch=main">
+<a href="https://en.wikipedia.org/wiki/Representational_state_transfer"><img src="https://img.shields.io/badge/interface-REST-brightgreen.svg?longCache=true&style=flat-square" target="_blank"></a>
 </p>
 
 ## Etapas para testar ou reproduzir
