@@ -2,6 +2,7 @@ package com.project.nebulosa.Config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -41,7 +42,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		    .antMatchers("/v1/api/baseRelato/**") 
 		      .hasAnyRole("USER","ADMIN")
 		    .antMatchers("/v1/api/listall/**") 
-		      .hasAnyRole("USER","ADMIN")  
+		      .hasAnyRole("USER","ADMIN")
+		    .antMatchers(HttpMethod.POST,"/v1/api/usuario/**")  
+		      .permitAll()
+		      .anyRequest().authenticated()
  		.and()
 		    .httpBasic();
  	}
